@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('resources/sass/_variables.css') }}" rel="stylesheet">
+    <link href="{{ asset('sass/_variables.css') }}" rel="stylesheet">
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -28,30 +28,6 @@
         @endforelse
 
         <x-primary-button><a href="{{ route('wish.create') }}" class="btn-link btn-lg body-bg">Add a wish</a></x-primary-button>
-
-        <h1>All Wishes</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                <tr>
-            </thead>
-            <tbody>
-                @forelse ($wishes as $wish)
-                    <tr>
-                        <td><a href="{{ route('wish.show', $wish) }}"
-                                class="font-bold text-2xl">{{ $wish->name }}</a></td>
-                        <td>{{ $wish->price }}</td>
-
-                    </tr>
-                @empty
-                    <tr>
-                        <td>No Wish</td>
-                    </tr>
-                @endforelse
-            </tbody>
-        </table>
 
     </div>
 </x-app-layout>
