@@ -17,13 +17,18 @@
                         <tbody>
 
                             <tr>
-                                <td class="font-bold ">Name </td>
-                                <td>{{ $wish->name }}</td>
+                                <td class="font-bold ">Date </td>
+                                <td>{{ $dailyRecord->date }}</td>
                             </tr>
 
                             <tr>
-                                <td class="font-bold">Price </td>
-                                <td>{{ $wish->price }}</td>
+                                <td class="font-bold">Amount smoked </td>
+                                <td>{{ $dailyRecord->amount_smoke }}</td>
+                            </tr>
+
+                            <tr>
+                                <td class="font-bold">Daily spent </td>
+                                <td>{{ $dailyRecord->daily_spent }}</td>
                             </tr>
 
                         </tbody>

@@ -72,7 +72,7 @@ class WishController extends Controller
             'name' => $request->name,
             'price' => $request->price,
         ]);
-        return to_route('wishes.show', $wish)->with('success', 'Wish updated successfully');
+        return to_route('wish.show', $wish)->with('success', 'Wish updated successfully');
     }
 
     /**
@@ -81,6 +81,6 @@ class WishController extends Controller
     public function destroy(Wish $wish)
     {
         $wish->delete();
-        return to_route('wishes.index')->with('success', 'Wish deleted successfully');
+        return to_route('wish.index')->with('success', 'Wish deleted successfully');
     }
 }

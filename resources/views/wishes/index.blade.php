@@ -1,4 +1,8 @@
 <x-app-layout>
+
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/sass/_variables.css') }}" rel="stylesheet">
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('All Wishes') }}
@@ -11,9 +15,8 @@
         {{ session('success') }}
     </x-alert-success>
 
-    <x-primary-button><a href="{{ route('wish.create') }}" class="btn-link btn-lg">Add a wish</a></x-primary-button>
 
-    <div class="container">
+    <div class="container body-bg">
         @forelse ($wishes as $wish)
             <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
                 <h2 class="font-bold text-2x1">
@@ -23,6 +26,9 @@
         @empty
             <p>NO Wishes</p>
         @endforelse
+
+        <x-primary-button><a href="{{ route('wish.create') }}" class="btn-link btn-lg body-bg">Add a wish</a></x-primary-button>
+
         <h1>All Wishes</h1>
         <table class="table">
             <thead>

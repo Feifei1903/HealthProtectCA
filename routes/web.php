@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WishController;
+use App\Http\Controllers\DailyRecordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,5 +31,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('/wish', WishController::class);
+Route::resource('dailyRecord', DailyRecordController::class);
 
 require __DIR__.'/auth.php';
