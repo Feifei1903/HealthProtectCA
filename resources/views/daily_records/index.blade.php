@@ -11,26 +11,29 @@
         {{ session('success') }}
     </x-alert-success>
 
-    {{-- <x-primary-button><a href="{{ route('dailyRecord.create') }}" class="btn-link btn-lg">Add a daily record</a></x-primary-button> --}}
-
-    <div class="container">
+    <div class="center">
         @forelse ($dailyRecord as $dailyRecords)
-            <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
-                <h2 class="font-bold text-2x1">
-                    {{-- <a href="{{ route('dailyRecord.show', $dailyRecord) }}">{{ $dailyRecord->name }}</a> --}}
-                </h2>
+            <div class="card">
+                <div class="my-6 p-6 bg-white border border-gray-200 shadow-sm sm:rounded-lg">
+                    <h2 class="font-bold text-2x1">
+                        {{-- <a href="{{ route('dailyRecord.show', $dailyRecord) }}">{{ $dailyRecord->name }}</a> --}}
+                    </h2>
+                </div>
             </div>
         @empty
             <p>NO Records</p>
         @endforelse
-        <h1>All Records</h1>
+    </div>
+
+    <h1 class="text-center">All Records</h1>
+    <div class="container">
         <table class="table">
             <thead>
                 <tr>
                     <th>Date</th>
                     <th>Amount Smoked</th>
                     <th>Daily Spent</th>
-                <tr>
+                </tr>
             </thead>
             <tbody>
                 @forelse ($dailyRecords as $dailyRecord)
@@ -38,15 +41,34 @@
                         {{-- <td>{{ $dailyRecord->date }}</td>
                         <td>{{ $dailyRecord->amount_smoke }}</td>
                         <td>{{ $dailyRecord->daily_spent }}</td> --}}
-
                     </tr>
                 @empty
                     <tr>
-                        <td>No Record</td>
+                        <td colspan="3">No Record</td>
                     </tr>
                 @endforelse
             </tbody>
         </table>
-
     </div>
+
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: #FED8BB;
+            border-radius: 10px;
+            border: 1px solid #6A599D; /* Thin border */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            max-width: 400px;
+            width: calc(100% - 20px);
+        }
+    </style>
 </x-app-layout>

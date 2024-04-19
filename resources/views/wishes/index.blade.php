@@ -15,19 +15,40 @@
         {{ session('success') }}
     </x-alert-success>
 
-
-    <div class="container body-bg">
+    <div class="center">
         @forelse ($wishes as $wish)
-            <div class="my-6 p-6 bg-white border-b border-gray-200 shadow-sm sm:rounded-lg">
-                <h2 class="font-bold text-2x1">
-                    <a href="{{ route('wish.show', $wish) }}">{{ $wish->name }}</a>
-                </h2>
+            <div class="card">
+                <div class="my-6 p-6 bg-white border border-gray-200 shadow-sm sm:rounded-lg">
+                    <h2 class="font-bold text-2x1">
+                        <a href="{{ route('wish.show', $wish) }}">{{ $wish->name }}</a>
+                    </h2>
+                </div>
             </div>
         @empty
             <p>NO Wishes</p>
         @endforelse
-
-        <x-primary-button><a href="{{ route('wish.create') }}" class="btn-link btn-lg body-bg">Add a wish</a></x-primary-button>
-
     </div>
+
+    <x-primary-button><a href="{{ route('wish.create') }}" class="btn-link btn-lg body-bg">Add a wish</a></x-primary-button>
+
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: #FED8BB;
+            border-radius: 10px;
+            border: 2px solid #6A599D; /* Thin border */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            max-width: 400px;
+            width: calc(100% - 20px);
+        }
+    </style>
 </x-app-layout>
